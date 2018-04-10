@@ -1,7 +1,8 @@
 ﻿var emitter = emitter.connect({
     secure: true
 }); 
-var key = 'LyOL3fhQDfOKyB6PWNkv6vemLSPjP8hf';
+// var key = 'LyOL3fhQDfOKyB6PWNkv6vemLSPjP8hf';
+var key = 'wcsb6Y3tqMjQRhLr-HvixTqjHDgo6VVx';
 var vue = new Vue({
     el: '#app',
     data: {
@@ -25,7 +26,8 @@ var vue = new Vue({
 	        console.log('emitter: publishing');
 	        emitter.publish({
                 key: key,
-                channel: "article1/" + getPersistentVisitorId(),
+                // channel: "article1/" + getPersistentVisitorId(),
+                channel: "root/",
                 ttl: 1200,
                 message: JSON.stringify({
                     name: 'test',
@@ -47,7 +49,7 @@ emitter.on('connect', function(){
     console.log('emitter: connected');
     emitter.subscribe({
         key: key,
-        channel: "article1",
+        channel: "root",
         last: 5
     });
 
